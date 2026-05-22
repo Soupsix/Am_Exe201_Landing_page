@@ -1,0 +1,140 @@
+'use client';
+
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+import { Menu, X, ExternalLink } from 'lucide-react';
+import { CustomButton } from '../ui/CustomButton';
+import { cn } from '@/lib/utils';
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Monitor scroll state to apply glassmorphic styles
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Trang chủ', href: '#trang-chu' },
+    { name: 'Câu chuyện', href: '#cau-chuyen' },
+    { name: 'Sản phẩm', href: '#san-pham' },
+    { name: 'Lợi ích', href: '#loi-ich' },
+    { name: 'Cách dùng', href: '#cach-dung' },
+    { name: 'Liên hệ', href: '#lien-he' },
+  ];
+
+  const isDarkText = isScrolled || isOpen;
+
+  return (
+    <header
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-sans border-b border-transparent',
+        isScrolled
+          ? 'bg-background/80 backdrop-blur-md shadow-diffused-sm border-outline-variant/30 py-3'
+          : 'bg-transparent py-5'
+      )}
+    >
+      <div className="max-w-7xl mx-auto px-5 md:px-16 flex items-center justify-between">
+        {/* Brand Logo */}
+        <a
+          href="#trang-chu"
+          className={cn(
+            "text-2xl font-bold tracking-widest hover:opacity-80 transition-colors duration-500 flex items-center gap-2",
+            isDarkText ? "text-primary" : "text-white"
+          )}
+        >
+          <span className={cn(
+            "inline-block w-8 h-8 rounded-full flex items-center justify-center font-serif text-lg leading-none shadow-diffused-sm transition-colors duration-500",
+            isDarkText ? "bg-primary text-background" : "bg-white text-primary"
+          )}>
+            Ấ
+          </span>
+          <span className="font-sans uppercase text-xl font-bold tracking-wider">Ấm</span>
+        </a>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className={cn(
+                "font-medium text-sm transition-colors duration-500 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:transition-all after:duration-300 hover:after:w-full",
+                isDarkText 
+                  ? "text-onBackground/80 hover:text-primary after:bg-primary" 
+                  : "text-white/90 hover:text-white after:bg-white"
+              )}
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        {/* Desktop CTA */}
+        <div className="hidden md:block">
+          <a href="https://zalo.me/0987654321" target="_blank" rel="noopener noreferrer">
+            <CustomButton 
+              size="sm" 
+              className={cn(
+                "gap-2 rounded-full transition-colors duration-500",
+                !isDarkText && "bg-white text-primary hover:bg-white/90 border-white"
+              )}
+            >
+              Tư vấn Zalo <ExternalLink size={14} />
+            </CustomButton>
+          </a>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={cn(
+            "md:hidden p-2 focus:outline-none transition-colors duration-500",
+            isDarkText ? "text-primary" : "text-white"
+          )}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation Drawer */}
+      {isOpen && (
+        <div className="md:hidden fixed inset-0 top-[60px] bg-background/95 backdrop-blur-lg z-40 animate-fade-in flex flex-col px-5 py-8 border-t border-outline-variant/30">
+          <nav className="flex flex-col gap-6 text-center">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="text-lg font-semibold text-onBackground/90 hover:text-primary py-2 border-b border-outline-variant/10 transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a
+              href="https://zalo.me/0987654321"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="mt-4"
+            >
+              <CustomButton fullWidth size="lg" className="gap-2 rounded-xl">
+                Tư vấn Zalo <ExternalLink size={16} />
+              </CustomButton>
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}

@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #faf9f7;
+    color: #1a1c1b;
+  }
+}
+
+/* Custom diffused herbal shadows matching brand tokens */
+.diffused-card {
+  background: #ffffff;
+  box-shadow: 0 8px 32px rgba(20, 48, 38, 0.04);
+  border: 1px solid rgba(193, 200, 195, 0.3);
+}
+
+/* Soft paper/cotton texture overlay */
+.tactile-overlay {
+  background-image: radial-gradient(rgba(20, 48, 38, 0.02) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Smooth organic transition styles */
+.organic-transition {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Rounded configurations matching DESIGN.md */
+.rounded-primary-radius {
+  border-radius: 1rem; /* 16px */
+}
+
+.rounded-large-radius {
+  border-radius: 1.5rem; /* 24px */
+}
+
+/* Direct custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf9f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c8c3;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #727975;
+}
