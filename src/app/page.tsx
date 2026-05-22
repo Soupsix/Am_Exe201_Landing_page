@@ -12,11 +12,12 @@ import WhyChooseUsSection from '@/components/sections/WhyChooseUsSection';
 import TestimonialSection from '@/components/sections/TestimonialSection';
 import ZaloCTASection from '@/components/sections/ZaloCTASection';
 import ContactSection from '@/components/sections/ContactSection';
+import { Analytics } from "@vercel/analytics/next"
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col justify-between bg-background selection:bg-primary selection:text-background relative">
-      
+      <Analytics />
       {/* 
         Tactile Overlay:
         This adds a gorgeous subtle paper/cotton fiber grid texture to the entire landing page, 
@@ -29,7 +30,7 @@ export default function Home() {
 
       {/* Sections Wrapper */}
       <main className="flex-grow z-10 relative">
-        
+
         {/* 1. Hero Introduction */}
         <HeroSection />
 
