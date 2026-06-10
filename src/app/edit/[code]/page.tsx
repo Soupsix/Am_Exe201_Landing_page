@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
 type LoveMessage = {
   publicCode: string;
@@ -35,6 +37,15 @@ export default function EditLoveMessagePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [showReminder, setShowReminder] = useState(false);
+
+  useEffect(() => {
+    if (!showReminder) return;
+    const timer = setTimeout(() => {
+      setShowReminder(false);
+    }, 7000);
+    return () => clearTimeout(timer);
+  }, [showReminder]);
 
   useEffect(() => {
     if (!token || !code) return;
@@ -83,6 +94,7 @@ export default function EditLoveMessagePage() {
 
       setStatus(json.data);
       setSuccessMessage("Đã cập nhật lời chúc thành công.");
+      setShowReminder(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Có lỗi xảy ra");
     } finally {
@@ -153,6 +165,36 @@ export default function EditLoveMessagePage() {
           </form>
         )}
       </section>
+
+      <AnimatePresence>
+        {showReminder && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            className="fixed bottom-6 left-4 right-4 z-50 flex max-w-sm items-start gap-3 rounded-2xl border border-[#eadfca] bg-white/95 p-4 shadow-2xl shadow-[#dbcaa8]/40 backdrop-blur-md text-[#244434] md:left-auto md:right-6"
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#fff8ed] text-xl shadow-inner">
+              🤫
+            </div>
+            <div className="flex-1 pt-0.5">
+              <h4 className="font-bold text-sm text-[#8b6f47]">Lời nhắn nhỏ</h4>
+              <p className="mt-1 text-sm text-[#244434] leading-relaxed">
+                Suỵt! Đừng gửi người ấy lời chúc này sớm nhé!
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setShowReminder(false)}
+              className="rounded-lg p-1 text-[#8b6f47]/60 hover:bg-[#fff8ed] hover:text-[#8b6f47] transition"
+              aria-label="Dismiss"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
