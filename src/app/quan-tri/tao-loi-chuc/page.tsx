@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { QrCode, ArrowLeft, Copy, Printer, Check } from "lucide-react";
+import { QrCode, ArrowLeft, Copy, Printer, Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 type CreateResult = {
@@ -78,12 +78,21 @@ export default function AdminCreateLoveMessagePage() {
     <main className="min-h-screen bg-[#fff8ed] px-4 py-10 text-[#244434] font-sans">
       <div className="mx-auto max-w-4xl">
         {/* Back Link */}
-        <Link
-          href="/"
-          className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-[#8b6f47] hover:text-[#244434] transition-colors"
-        >
-          <ArrowLeft size={16} /> Quay lại Trang chủ
-        </Link>
+        <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#8b6f47] hover:text-[#244434] transition-colors"
+          >
+            <ArrowLeft size={16} /> Quay lại Trang chủ
+          </Link>
+
+          <Link
+            href="/quan-tri/quan-ly-ma"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#8b6f47] hover:text-[#244434] transition-colors sm:justify-end"
+          >
+            Quản lý mã <ArrowRight size={16} />
+          </Link>
+        </div>
 
         <div className="grid gap-8 lg:grid-cols-12">
           {/* Form Card */}
