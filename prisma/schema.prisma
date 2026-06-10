@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model LoveMessage {
+  id String @id @default(cuid())
+
+  publicCode String  @unique
+  editToken  String  @unique
+  editCode   String?
+
+  orderCode  String?
+  phone      String?
+
+  senderName   String
+  receiverName String
+  message      String
+
+  theme String @default("warm")
+
+  editCount Int     @default(0)
+  editLimit Int     @default(3)
+  isLocked  Boolean @default(false)
+
+  viewedCount   Int       @default(0)
+  firstViewedAt DateTime?
+  lastViewedAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

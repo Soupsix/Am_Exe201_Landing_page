@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Menu, X, ExternalLink } from 'lucide-react';
+import { Menu, X, ExternalLink, QrCode } from 'lucide-react';
 import { CustomButton } from '../ui/CustomButton';
 import { cn } from '@/lib/utils';
 
@@ -94,7 +94,19 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <a href="/loi-chuc-qr">
+              <CustomButton 
+                size="sm" 
+                variant="secondary"
+                className={cn(
+                  "gap-2 rounded-full transition-colors duration-500",
+                  !isDarkText && "bg-transparent text-white hover:bg-white/10 border-white"
+                )}
+              >
+                <QrCode size={14} /> Lời chúc QR
+              </CustomButton>
+            </a>
             <a href="https://zalo.me/0987654321" target="_blank" rel="noopener noreferrer">
               <CustomButton 
                 size="sm" 
@@ -108,17 +120,31 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={cn(
-              "md:hidden p-2 focus:outline-none transition-colors duration-500 relative z-50",
-              isDarkText ? "text-primary" : "text-white"
-            )}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Mobile Menu Toggle & Actions */}
+          <div className="flex md:hidden items-center gap-2">
+            <a href="/loi-chuc-qr" aria-label="Lời chúc QR">
+              <CustomButton
+                size="sm"
+                variant="ghost"
+                className={cn(
+                  "p-2 min-h-0 min-w-0 border-transparent rounded-full transition-colors duration-500",
+                  isDarkText ? "text-primary hover:bg-surface-low" : "text-white hover:bg-white/10"
+                )}
+              >
+                <QrCode size={20} />
+              </CustomButton>
+            </a>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={cn(
+                "md:hidden p-2 focus:outline-none transition-colors duration-500 relative z-50",
+                isDarkText ? "text-primary" : "text-white"
+              )}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -136,7 +162,16 @@ export default function Header() {
                 {link.name}
               </a>
             ))}
-            <div className="mt-auto pt-8">
+            <div className="mt-auto pt-8 flex flex-col gap-3">
+              <a
+                href="/loi-chuc-qr"
+                onClick={() => setIsOpen(false)}
+                className="block w-full"
+              >
+                <CustomButton fullWidth variant="secondary" size="lg" className="gap-2 rounded-xl h-14 text-lg">
+                  <QrCode size={18} /> Lời chúc QR
+                </CustomButton>
+              </a>
               <a
                 href="https://zalo.me/0987654321"
                 target="_blank"

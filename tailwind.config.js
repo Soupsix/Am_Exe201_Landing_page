@@ -49,7 +49,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-jakarta, Arial)', 'Arial', 'Helvetica', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         sm: '0.25rem',
