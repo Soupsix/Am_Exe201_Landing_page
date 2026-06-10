@@ -47,51 +47,51 @@ export interface WhyChooseUs {
 export const PRODUCTS: readonly Product[] = [
   {
     id: "tui-chuom-thao-moc",
-    name: "Túi Chườm Thảo Mộc Toàn Thân",
+    name: "Túi Chườm Thảo Mộc",
     category: "Chăm sóc cơ thể",
-    description: "Được dệt tỉ mỉ từ cotton tự nhiên thoáng khí, chứa 9 vị thảo dược tinh túy giúp xoa dịu nhanh chóng vùng vai gáy, vùng lưng, bụng bị nhức mỏi.",
+    description: "Được dệt tỉ mỉ từ cotton tự nhiên thoáng khí, chứa 9 vị thảo dược tinh túy giúp xoa dịu nhanh chóng vùng vai gáy, lưng và bụng nhức mỏi. Mỗi sản phẩm khi mua đều được tặng QR gửi lời yêu thương cho người nhận.",
     benefits: [
       "Hơi nóng thẩm thấu sâu từ 30 đến 45 phút dưỡng sinh",
       "Hỗ trợ lưu thông khí huyết vùng cổ gáy, thắt lưng",
-      "Hương quế chi, ngải cứu xua tan mệt mỏi tức thì"
+      "Tặng kèm QR gửi lời yêu thương cho người nhận"
     ],
-    price: "320.000 đ",
-    originalPrice: "380.000 đ",
+    price: "149.000 đ",
+    originalPrice: "199.000 đ",
     tag: "Bán chạy nhất",
     ingredients: ["Ngải cứu", "Sả chanh", "Quế chi", "Hồi hương", "Gừng khô", "Hạt quyết minh"],
-    imageUrl: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "/images/tuichuom1.webp"
   },
   {
     id: "tui-chuom-mat-thao-moc",
-    name: "Túi Chườm Mắt Thảo Mộc Dịu Nhẹ",
+    name: "Túi Chườm Mắt Thảo Mộc",
     category: "Chăm sóc đôi mắt",
-    description: "Thiết kế cong ôm khít nhẹ nhàng vùng cơ mắt, kết hợp hạt thảo dược khô xoa dịu đôi mắt mỏi mệt sau ngày học tập hay làm việc căng thẳng.",
+    description: "Thiết kế cong ôm khít nhẹ nhàng vùng cơ mắt, kết hợp hạt thảo dược khô xoa dịu đôi mắt mỏi mệt sau ngày học tập hay làm việc căng thẳng. Mỗi sản phẩm khi mua đều được tặng QR gửi lời yêu thương cho người nhận.",
     benefits: [
       "Giảm áp lực tích tụ vùng cơ mắt, chống mỏi rát",
       "Hương thơm hoa cúc nụ thảo dược dịu ngọt lành tính",
-      "Lớp lụa mát lành mộc mạc, tuyệt đối êm dịu cho da"
+      "Tặng kèm QR gửi lời yêu thương cho người nhận"
     ],
-    price: "185.000 đ",
-    originalPrice: "220.000 đ",
+    price: "109.000 đ",
+    originalPrice: "149.000 đ",
     tag: "Văn phòng & Học sinh yêu thích",
     ingredients: ["Hoa cúc nụ", "Hạt quyết minh", "Bạc hà khô", "Nụ oải hương", "Trà xanh"],
-    imageUrl: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "/images/tuichuommat1.webp"
   },
   {
     id: "set-qua-tang-am-ap",
-    name: "Set Quà Tặng Ấm Áp Gửi Thương",
+    name: "Quà Tặng",
     category: "Bộ quà tặng ý nghĩa",
-    description: "Trải nghiệm chăm sóc sức khỏe toàn diện cả cơ thể và đôi mắt, xếp đặt tinh tế trong hộp đan tre thủ công đính kèm hoa nhài sấy khô thơm ngát.",
+    description: "Trải nghiệm chăm sóc sức khỏe toàn diện cả cơ thể và đôi mắt, xếp đặt tinh tế trong hộp đan tre thủ công đính kèm hoa nhài sấy khô thơm ngát. Mỗi sản phẩm khi mua đều được tặng QR gửi lời yêu thương cho người nhận.",
     benefits: [
       "Trọn bộ 1 túi chườm gáy & 1 túi chườm mắt thảo dược",
-      "Tặng kèm 1 hũ trà thảo mộc mật cúc thư thái dưỡng tâm",
-      "Hộp tre đan cao cấp, thắt nơ mộc mạc và thiệp chúc viết tay"
+      "Hộp tre đan cao cấp, thắt nơ mộc mạc và thiệp chúc",
+      "Tặng kèm QR gửi lời yêu thương cho người nhận"
     ],
-    price: "499.000 đ",
-    originalPrice: "560.000 đ",
+    price: "209.000 đ",
+    originalPrice: "299.000 đ",
     tag: "Món quà trọn vẹn sức khỏe",
     ingredients: ["Bộ 2 sản phẩm", "Hộp tre đan thủ công", "Trà cúc mật", "Thiệp viết tay"],
-    imageUrl: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "/images/anhsanpham3.jpg"
   }
 ];
 

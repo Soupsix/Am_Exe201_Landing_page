@@ -61,18 +61,16 @@ export default function Header() {
           <a
             href="#trang-chu"
             onClick={() => setIsOpen(false)}
-            className={cn(
-              "text-2xl font-bold tracking-widest hover:opacity-80 transition-colors duration-500 flex items-center gap-2",
-              isDarkText ? "text-primary" : "text-white"
-            )}
+            className="hover:opacity-80 transition-opacity duration-300 flex items-center"
           >
-            <span className={cn(
-              "inline-block w-8 h-8 rounded-full flex items-center justify-center font-serif text-lg leading-none shadow-diffused-sm transition-colors duration-500",
-              isDarkText ? "bg-primary text-background" : "bg-white text-primary"
-            )}>
-              Ấ
-            </span>
-            <span className="font-sans uppercase text-xl font-bold tracking-wider">Ấm</span>
+            <img
+              src={isScrolled || isOpen ? "/images/xanhla.png" : "/images/sang.png"}
+              alt="Ấm Logo"
+              className={cn(
+                "w-auto object-contain transition-all duration-300",
+                isScrolled || isOpen ? "h-10 md:h-12" : "h-14 md:h-16"
+              )}
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -83,8 +81,8 @@ export default function Header() {
                 href={link.href}
                 className={cn(
                   "font-medium text-sm transition-colors duration-500 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:transition-all after:duration-300 hover:after:w-full",
-                  isDarkText 
-                    ? "text-onBackground/80 hover:text-primary after:bg-primary" 
+                  isDarkText
+                    ? "text-onBackground/80 hover:text-primary after:bg-primary"
                     : "text-white/90 hover:text-white after:bg-white"
                 )}
               >
@@ -96,8 +94,8 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a href="/loi-chuc-qr">
-              <CustomButton 
-                size="sm" 
+              <CustomButton
+                size="sm"
                 variant="secondary"
                 className={cn(
                   "gap-2 rounded-full transition-colors duration-500",
@@ -107,9 +105,9 @@ export default function Header() {
                 <QrCode size={14} /> Lời chúc QR
               </CustomButton>
             </a>
-            <a href="https://zalo.me/0987654321" target="_blank" rel="noopener noreferrer">
-              <CustomButton 
-                size="sm" 
+            <a href="https://zalo.me/0353923012" target="_blank" rel="noopener noreferrer">
+              <CustomButton
+                size="sm"
                 className={cn(
                   "gap-2 rounded-full transition-colors duration-500",
                   !isDarkText && "bg-white text-primary hover:bg-white/90 border-white"

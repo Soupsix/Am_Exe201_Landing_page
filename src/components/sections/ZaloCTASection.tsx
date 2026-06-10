@@ -8,7 +8,7 @@ import { CustomButton } from '../ui/CustomButton';
 
 export default function ZaloCTASection() {
   const [copied, setCopied] = useState(false);
-  const zaloPhone = '0987654321';
+  const zaloPhone = '0353923012';
 
   const handleCopy = async () => {
     try {
@@ -36,7 +36,7 @@ export default function ZaloCTASection() {
           transition={{ duration: 0.8 }}
           className="bg-background rounded-[3rem] p-8 md:p-16 border border-outline-variant/20 shadow-diffused-lg flex flex-col md:flex-row gap-12 items-center justify-between text-center md:text-left"
         >
-          
+
           {/* Left Side: Call to action */}
           <div className="space-y-6 flex-1">
             <div className="space-y-2">
@@ -47,7 +47,7 @@ export default function ZaloCTASection() {
                 Kết nối Zalo với Ấm
               </h2>
             </div>
-            
+
             <p className="text-sm md:text-base text-onBackground/80 leading-relaxed font-normal">
               Ấm không dùng hệ thống thanh toán tự động vô hồn. Chúng tôi muốn lắng nghe từng chia sẻ, tư vấn tận tâm cho tình trạng đau nhức của bạn hoặc bọc gói món quà tre đan xinh xắn theo đúng tâm tình bạn gửi trao.
             </p>
@@ -94,14 +94,14 @@ export default function ZaloCTASection() {
             <div className="relative p-6 bg-background rounded-3xl border border-outline-variant/30 shadow-diffused-md">
               {/* Wood frame decorations */}
               <div className="absolute inset-2 border border-dashed border-secondary/30 rounded-2xl pointer-events-none" />
-              
+
               {/* QR Code Placeholder with fine graphic lines */}
               <div className="w-40 h-40 bg-surface-low rounded-xl border border-outline-variant/20 flex flex-col items-center justify-center gap-2 relative overflow-hidden">
                 <QrCode size={96} className="text-primary opacity-90" />
                 <span className="text-[10px] uppercase font-bold tracking-widest text-primary/70 relative z-10">Quét Mã Zalo</span>
               </div>
             </div>
-            
+
             <p className="text-xs text-onBackground/60 font-semibold italic">
               Quét mã QR bằng điện thoại để kết nối ngay
             </p>

@@ -24,7 +24,7 @@ export default function BrandStorySection() {
           {/* Main Visual */}
           <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-diffused-md border border-outline-variant/30">
             <Image
-              src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80"
+              src="/images/brand_story_section.png"
               alt="Ấm herbal ingredients story"
               fill
               sizes="(max-w-768px) 100vw, 50vw"

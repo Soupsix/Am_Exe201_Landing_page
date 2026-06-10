@@ -19,12 +19,13 @@ export default function Footer() {
           <div className="md:col-span-2 space-y-6">
             <a
               href="#trang-chu"
-              className="text-2xl font-bold tracking-widest text-background flex items-center gap-2"
+              className="hover:opacity-80 transition-opacity duration-300 flex items-center"
             >
-              <span className="inline-block w-8 h-8 rounded-full bg-background text-primary flex items-center justify-center font-serif text-lg leading-none">
-                Ấ
-              </span>
-              <span className="uppercase text-xl font-bold tracking-wider">Ấm</span>
+              <img 
+                src="/images/sang.png" 
+                alt="Ấm Logo" 
+                className="h-16 w-auto object-contain"
+              />
             </a>
             <p className="text-primary-onContainer text-base max-w-sm leading-relaxed">
               Thương hiệu túi chườm thảo mộc 100% tự nhiên của Việt Nam. Được tạo tác tỉ mỉ từ lòng trân quý sức khỏe và tinh hoa y học cổ truyền dân tộc.

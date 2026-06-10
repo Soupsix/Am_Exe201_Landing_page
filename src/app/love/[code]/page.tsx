@@ -88,6 +88,20 @@ export default async function LoveMessagePage({ params }: PageProps) {
           <span>Đã mở {loveMessage.viewedCount} lần</span>
         </div>
       </section>
+
+      {/* Back to Home */}
+      <div className="mx-auto mt-8 max-w-2xl text-center">
+        <a
+          href="/"
+          className="inline-flex items-center gap-2 rounded-full border border-[#cdbf9f] bg-white px-6 py-3 text-sm font-semibold text-[#8b6f47] shadow-sm transition-all duration-300 hover:bg-[#fff3e0] hover:shadow-md"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Về trang chủ Ấm
+        </a>
+      </div>
     </main>
   );
 }

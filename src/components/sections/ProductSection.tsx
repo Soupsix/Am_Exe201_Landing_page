@@ -18,8 +18,8 @@ export default function ProductSection() {
     { id: 'Bộ quà tặng ý nghĩa', name: 'Quà tặng ý nghĩa' },
   ];
 
-  const filteredProducts = activeTab === 'all' 
-    ? PRODUCTS 
+  const filteredProducts = activeTab === 'all'
+    ? PRODUCTS
     : PRODUCTS.filter(p => p.category === activeTab);
 
   return (
@@ -28,7 +28,7 @@ export default function ProductSection() {
       className="py-20 md:py-28 bg-background font-sans overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-5 md:px-16 space-y-12">
-        
+
         {/* Header Text */}
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <span className="text-sm font-semibold uppercase tracking-wider text-secondary">
@@ -48,11 +48,10 @@ export default function ProductSection() {
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${
-                activeTab === cat.id
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${activeTab === cat.id
                   ? 'bg-primary border-primary text-background shadow-diffused-sm'
                   : 'bg-transparent border-outline-variant/30 text-onBackground/80 hover:bg-surface-low hover:text-primary'
-              }`}
+                }`}
             >
               {cat.name}
             </button>
@@ -60,7 +59,7 @@ export default function ProductSection() {
         </div>
 
         {/* Product Grid */}
-        <motion.div 
+        <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4"
         >
