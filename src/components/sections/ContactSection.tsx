@@ -2,23 +2,50 @@
 
 import * as React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, MessageSquare, Mail, Send, Check } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, Mail, Send, Check, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({ name: '', phone: '', note: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '', product: '', note: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) return;
+    if (!formData.name || !formData.phone || !formData.product) {
+      setError('Vui lòng điền đầy đủ các thông tin bắt buộc.');
+      return;
+    }
     
-    // Simulate sending contact (actually we just show success and open a customized Zalo pre-fill message if they want, or a beautiful toast)
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', phone: '', note: '' });
-    }, 4000);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({ name: '', phone: '', product: '', note: '' });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 4000);
+      } else {
+        setError(result.error || 'Có lỗi xảy ra, vui lòng thử lại sau.');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Lỗi kết nối. Vui lòng kiểm tra mạng và thử lại.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -155,6 +182,27 @@ export default function ContactSection() {
                       />
                     </div>
 
+                    {/* Product dropdown select */}
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-primary tracking-wide block">Sản phẩm bạn quan tâm *</label>
+                      <div className="relative">
+                        <select
+                          required
+                          value={formData.product}
+                          onChange={(e) => setFormData({ ...formData, product: e.target.value })}
+                          className="w-full bg-background border border-outline-variant/30 rounded-xl px-4 py-3 pr-10 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-sans appearance-none text-onBackground"
+                        >
+                          <option value="" disabled>Chọn sản phẩm...</option>
+                          <option value="Túi Chườm Thảo Mộc">Túi Chườm Thảo Mộc</option>
+                          <option value="Túi Chườm Mắt Thảo Mộc">Túi Chườm Mắt Thảo Mộc</option>
+                          <option value="Quà Tặng">Quà Tặng</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-onBackground/50">
+                          <ChevronDown size={16} />
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Note input */}
                     <div className="space-y-1">
                       <label className="text-xs font-bold text-primary tracking-wide block">Ghi chú (Tình trạng đau nhức / Sản phẩm quan tâm)</label>
@@ -168,11 +216,27 @@ export default function ContactSection() {
                     </div>
                   </div>
 
+                  {error && (
+                    <p className="text-xs font-semibold text-red-500 px-1">
+                      ⚠️ {error}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full py-4 bg-primary text-background hover:bg-primary-container rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 shadow-diffused-sm focus:outline-none"
+                    disabled={isSubmitting}
+                    className="w-full py-4 bg-primary text-background hover:bg-primary-container rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 shadow-diffused-sm focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send size={16} /> Gửi thông tin đăng ký tư vấn
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-background border-t-transparent rounded-full animate-spin" />
+                        Đang gửi thông tin...
+                      </>
+                    ) : (
+                      <>
+                        <Send size={16} /> Gửi thông tin đăng ký tư vấn
+                      </>
+                    )}
                   </button>
                 </form>
               )}
