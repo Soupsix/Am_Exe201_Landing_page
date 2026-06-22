@@ -103,7 +103,7 @@ export default function AdminCreateLoveMessagePage() {
               </span>
               <h1 className="mt-3 text-2xl font-bold md:text-3xl">Tạo QR Lời chúc</h1>
               <p className="mt-1 text-sm text-[#6f7d68]">
-                Tạo lời chúc mặc định, liên kết đơn hàng và sinh mã QR thiệp.
+                Tạo lời chúc mặc định, liên kết đơn hàng và sinh mã QR Lời Yêu Thương.
               </p>
             </div>
 
@@ -190,7 +190,7 @@ export default function AdminCreateLoveMessagePage() {
                 disabled={isSubmitting}
                 className="w-full rounded-xl bg-[#244434] px-5 py-4 font-bold text-white transition hover:bg-[#1c3528] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {isSubmitting ? "Đang tạo..." : "Tạo mã QR thiệp"}
+                {isSubmitting ? "Đang tạo..." : "Tạo mã QR Lời Yêu Thương"}
               </button>
             </form>
           </section>
@@ -199,13 +199,13 @@ export default function AdminCreateLoveMessagePage() {
           <div className="lg:col-span-5">
             {result ? (
               <section className="space-y-4">
-                {/* === QR XEM THIỆP === */}
+                {/* === QR XEM LỜI NHẮN === */}
                 <div className="rounded-3xl border border-[#eadfca] bg-white p-5 text-center shadow-xl shadow-[#dbcaa8]/10">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#8b6f47]">QR Xem Thiệp</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#8b6f47]">QR Xem Lời Nhắn</p>
                   <p className="mt-0.5 text-[10px] text-[#6f7d68]">Người nhận quét mã này</p>
                   <img
                     src={result.qrCodeDataUrl}
-                    alt="QR xem thiệp"
+                    alt="QR xem lời nhắn"
                     className="mx-auto mt-3 h-44 w-44 rounded-2xl border border-[#eadfca] bg-[#fff8ed] p-2 shadow-sm"
                   />
                   <p className="mt-3 text-xl font-black tracking-widest text-[#244434]">{result.publicCode}</p>
@@ -223,17 +223,17 @@ export default function AdminCreateLoveMessagePage() {
                   </div>
                 </div>
 
-                {/* === QR SỬA THIỆP === */}
+                {/* === QR SỬA LỜI NHẮN === */}
                 <div className="rounded-3xl border-2 border-[#3178c6]/30 bg-white p-5 text-center shadow-xl shadow-blue-100/30">
                   <div className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1">
                     <span className="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
-                    <p className="text-xs font-semibold text-blue-700">Link Sửa Thiệp — Gửi Riêng Cho Khách</p>
+                    <p className="text-xs font-semibold text-blue-700">Link Sửa Lời Nhắn — Gửi Riêng Cho Khách</p>
                   </div>
                   <p className="text-[10px] text-[#6f7d68]">Khách mua dùng link này để chỉnh sửa nội dung</p>
 
                   <img
                     src={result.editQrCodeDataUrl}
-                    alt="QR sửa thiệp"
+                    alt="QR sửa lời nhắn"
                     className="mx-auto mt-3 h-44 w-44 rounded-2xl border border-blue-100 bg-[#f0f5ff] p-2 shadow-sm"
                   />
 
@@ -267,7 +267,7 @@ export default function AdminCreateLoveMessagePage() {
               <div className="flex h-full min-h-[300px] flex-col items-center justify-center rounded-3xl border border-dashed border-[#eadfca] bg-white/40 p-6 text-center">
                 <QrCode size={48} className="text-[#8b6f47]/40" />
                 <p className="mt-4 text-sm font-semibold text-[#8b6f47]">Thông tin QR sẽ hiển thị tại đây</p>
-                <p className="mt-1 text-xs text-[#6f7d68]">Vui lòng điền thông tin và bấm "Tạo mã QR thiệp" ở bên trái.</p>
+                <p className="mt-1 text-xs text-[#6f7d68]">Vui lòng điền thông tin và bấm "Tạo mã QR Lời Yêu Thương" ở bên trái.</p>
               </div>
             )}
           </div>

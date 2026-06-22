@@ -58,7 +58,7 @@ export const PRODUCTS: readonly Product[] = [
     price: "149.000 đ",
     originalPrice: "199.000 đ",
     tag: "Bán chạy nhất",
-    ingredients: ["Ngải cứu", "Sả chanh", "Quế chi", "Hồi hương", "Gừng khô", "Hạt quyết minh"],
+    ingredients: ["Ngải cứu", "Sả chanh", "Quế chi", "Hồi hương", "Gừng khô", "Hạt quyết minh", "Thẻ QR lời yêu thương"],
     imageUrl: "/images/tuichuom1.webp"
   },
   {
@@ -74,7 +74,7 @@ export const PRODUCTS: readonly Product[] = [
     price: "109.000 đ",
     originalPrice: "149.000 đ",
     tag: "Văn phòng & Học sinh yêu thích",
-    ingredients: ["Hoa cúc nụ", "Hạt quyết minh", "Bạc hà khô", "Nụ oải hương", "Trà xanh"],
+    ingredients: ["Hoa cúc nụ", "Hạt quyết minh", "Bạc hà khô", "Nụ oải hương", "Trà xanh", "Thẻ QR lời yêu thương"],
     imageUrl: "/images/tuichuommat1.webp"
   },
   {
@@ -84,13 +84,13 @@ export const PRODUCTS: readonly Product[] = [
     description: "Trải nghiệm chăm sóc sức khỏe toàn diện cả cơ thể và đôi mắt, xếp đặt tinh tế trong hộp đan tre thủ công đính kèm hoa nhài sấy khô thơm ngát. Mỗi sản phẩm khi mua đều được tặng QR gửi lời yêu thương cho người nhận.",
     benefits: [
       "Trọn bộ 1 túi chườm gáy & 1 túi chườm mắt thảo dược",
-      "Hộp tre đan cao cấp, thắt nơ mộc mạc và thiệp chúc",
+      "Hộp tre đan cao cấp, thắt nơ mộc mạc và thẻ QR lời yêu thương",
       "Tặng kèm QR gửi lời yêu thương cho người nhận"
     ],
     price: "209.000 đ",
     originalPrice: "299.000 đ",
     tag: "Món quà trọn vẹn sức khỏe",
-    ingredients: ["Bộ 2 sản phẩm", "Hộp tre đan thủ công", "Trà cúc mật", "Thiệp viết tay"],
+    ingredients: ["Bộ 2 sản phẩm", "Hộp tre đan thủ công", "Trà cúc mật", "Thẻ QR lời yêu thương"],
     imageUrl: "/images/anhsanpham3.jpg"
   }
 ];

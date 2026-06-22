@@ -117,7 +117,7 @@ export default function LoiChucQrPage() {
               </div>
               <h2 className="text-xl font-bold">Sửa lời chúc</h2>
               <p className="mt-3 text-sm text-[#6f7d68] leading-relaxed">
-                Dán link chỉnh sửa để cập nhật nội dung thiệp.
+                Dán link chỉnh sửa để cập nhật nội dung lời chúc.
               </p>
 
               <form onSubmit={handleEdit} className="mt-4">

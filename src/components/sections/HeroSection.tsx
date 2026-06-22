@@ -107,7 +107,7 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto pt-6"
           >
             <a
-              href="https://zalo.me/0987654321"
+              href="https://zalo.me/0353923012"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto"

@@ -151,7 +151,7 @@ export default function ProductSection() {
 
                     {/* CTA Button */}
                     <a
-                      href="https://zalo.me/0987654321"
+                      href="https://zalo.me/0353923012"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full"

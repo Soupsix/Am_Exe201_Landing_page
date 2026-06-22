@@ -78,7 +78,7 @@ export default async function PrintLoveMessagePage({ params }: PrintPageProps) {
         </div>
 
         <p className="mt-8 text-[10px] text-[#8b6f47] leading-relaxed border-t border-[#eadfca] pt-4">
-          Quét mã QR để đọc tấm thiệp cá nhân hóa dành riêng cho bạn.
+          Quét mã QR để đọc lời yêu thương cá nhân hóa dành riêng cho bạn.
         </p>
       </div>
     </main>

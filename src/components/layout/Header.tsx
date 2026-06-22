@@ -171,7 +171,7 @@ export default function Header() {
                 </CustomButton>
               </a>
               <a
-                href="https://zalo.me/0987654321"
+                href="https://zalo.me/0353923012"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}

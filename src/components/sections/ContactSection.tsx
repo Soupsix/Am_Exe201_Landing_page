@@ -105,7 +105,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary text-sm">Hotline đặt quà</h4>
-                  <p className="text-xs text-onBackground/70 font-semibold mt-0.5">0987.654.321 (Tư vấn 8:00 - 21:00 hàng ngày)</p>
+                  <p className="text-xs text-onBackground/70 font-semibold mt-0.5">0353.923.012 (Tư vấn 8:00 - 21:00 hàng ngày)</p>
                 </div>
               </div>
 
